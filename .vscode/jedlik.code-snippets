@@ -238,12 +238,12 @@
   "Vue3 ref with type": {
     "prefix": "úreft",
     "description": "Reactice variable with type",
-    "body": ["const reactive = ref(0);"]
+    "body": ["const reactive: Ref<number> = ref(0);"]
   },
   "Vue3 ref": {
     "prefix": "úref",
     "description": "Reactive variable",
-    "body": ["const reactive: Ref<number> = ref(0);"]
+    "body": ["const reactive = ref(0);"]
   },
   "Vue3 reactive": {
     "prefix": "úreactive",
