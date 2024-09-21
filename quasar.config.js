@@ -9,7 +9,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
 const { configure } = require('quasar/wrappers');
-const { mergeConfig } = require('vite');
+// const { mergeConfig } = require('vite');
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -72,20 +72,20 @@ module.exports = configure(function (/* ctx */) {
       // polyfillModulePreload: true,
       // distDir
 
-      extendViteConf(viteConf) {
-        viteConf.css = mergeConfig(viteConf.css, {
-          preprocessorOptions: {
-            sass: {
-              api: 'modern-compile',
-              silenceDeprecations: ['legacy-js-api'],
-            },
-            scss: {
-              api: 'modern-compile',
-              silenceDeprecations: ['legacy-js-api'],
-            },
-          },
-        });
-      },
+      // extendViteConf(viteConf) {
+      //   viteConf.css = mergeConfig(viteConf.css, {
+      //     preprocessorOptions: {
+      //       sass: {
+      //         api: 'modern-compile',
+      //         silenceDeprecations: ['legacy-js-api'],
+      //       },
+      //       scss: {
+      //         api: 'modern-compile',
+      //         silenceDeprecations: ['legacy-js-api'],
+      //       },
+      //     },
+      //   });
+      // },
 
       // viteVuePluginOptions: {},
 

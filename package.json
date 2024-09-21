@@ -18,13 +18,13 @@
     "axios": "1.7.7",
     "pinia": "2.2.2",
     "pinia-plugin-persist": "1.0.0",
-    "quasar": "2.16.11",
+    "quasar": "2.17.0",
     "vue": "3.5.5",
-    "vue-router": "4.4.5"
+    "vue-router": "4.4.0"
   },
   "devDependencies": {
-    "@quasar/app-vite": "1.9.5",
-    "@types/node": "12.20.55",
+    "@quasar/app-vite": "1.10.0",
+    "@types/node": "20.14.8",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "autoprefixer": "10.4.20",

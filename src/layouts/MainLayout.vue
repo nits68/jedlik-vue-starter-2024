@@ -3,8 +3,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-// import { onMounted } from "vue";
-
 
 let showMenuBar = ref(true);
 let showLeftDrawer = ref(true);
@@ -21,7 +19,7 @@ let showLeftDrawer = ref(true);
       <q-header v-model="showMenuBar" class="text-left bg-blue-5" elevated reveal>
         <!-- Menu bar: -->
         <q-toolbar>
-          <q-btn dense flat icon="crib" round @click="showLeftDrawer = !showLeftDrawer" />
+          <q-btn dense flat icon="menu" round @click="showLeftDrawer = !showLeftDrawer" />
         </q-toolbar>
       </q-header>
 
@@ -54,5 +52,4 @@ let showLeftDrawer = ref(true);
   background-color: #44a5f1;
   color: yellow;
 }
-
 </style>
