@@ -45,4 +45,3 @@ export const useStore = defineStore({
     enabled: true,
   },
 });
-

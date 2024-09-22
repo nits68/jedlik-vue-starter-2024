@@ -182,7 +182,7 @@
   "Quasar Button": {
     "prefix": "űq-btn",
     "description": "Quasar Button",
-    "body": ["<q-btn color=\"primary\" glossy icon=\"mdi-mail\" label=\"OK\" no-caps stack to=\"/\" />"]
+    "body": ["<q-btn color='primary' glossy icon='mdi-mail' label='OK' no-caps stack to='/' />"]
   },
   "Quasar Banner": {
     "prefix": "űq-banner",
@@ -191,7 +191,7 @@
       "<q-banner :class=\"\\$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'\">",
       "  My banner",
       "  <template v-slot:action>",
-      "    <q-btn color=\"primary\" flat label=\"Go to home\" to=\"/\" />",
+      "    <q-btn color='primary' flat label='Go to home' to='/' />",
       "  </template>",
       "</q-banner>"
     ]
@@ -199,11 +199,11 @@
   "Quasar Input": {
     "prefix": "űq-input",
     "description": "Quasar Input",
-    "body": ["<q-input v-model=\"nev\" clearable label=\"Név\" outlined />"]
+    "body": ["<q-input v-model='nev' clearable label='Név' outlined />"]
   },
   "Vue3 v-model": {
     "prefix": "úvModel",
-    "body": ["v-model=\"${1:something}\""],
+    "body": ["v-model='${1:something}'"],
     "description": "Expects: varies based on value of form inputs element or output of components"
   },
   "vue3 init": {
@@ -222,7 +222,7 @@
       "",
       "// onMounted(() => {",
       "//   s.GetAllDocuments();",
-      "//   router.push('/home');", 
+      "//   router.push('/home');",
       "// });",
       "",
       "</script>",
@@ -250,9 +250,9 @@
     "description": "Reactive object",
     "body": [
       "\tconst author = reactive({",
-      "\t\tfname: \"John\",",
-      "\t\tlname: \"Doe\",",
-      "\t\tbooks: [\"Vue 2 - Advanced Guide\", \"Vue 3 - Basic Guide\"]",
+      "\t\tfname: 'John',",
+      "\t\tlname: 'Doe',",
+      "\t\tbooks: ['Vue 2 - Advanced Guide', 'Vue 3 - Basic Guide']",
       "\t})"
     ]
   },
@@ -282,8 +282,8 @@
       "\tshowDialog: boolean;",
       "}",
       "const props = withDefaults(defineProps<IProps>(), {",
-      "\temail: \"student001@jedlik.eu\",",
-      "\tpassword: \"student001\",",
+      "\temail: 'student001@jedlik.eu',",
+      "\tpassword: 'student001',",
       "});"
     ]
   }

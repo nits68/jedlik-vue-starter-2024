@@ -13,7 +13,7 @@
 
 <template>
   <q-page class="column flex-center">
-    <q-img width="150px" alt="Jedlik logo" src="../assets/Jedlik_big.png" loading="eager" />
+    <q-img alt="Jedlik logo" loading="eager" src="../assets/Jedlik_big.png" width="150px" />
     <h2>Jedlik Ányos Technikum - Győr - 2024</h2>
   </q-page>
 </template>
