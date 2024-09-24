@@ -16,6 +16,7 @@
     "vue"
   ],
   "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
   "git.autofetch": true,
