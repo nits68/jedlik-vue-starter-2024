@@ -149,6 +149,17 @@ let showLeftDrawer = ref(true);
             no-caps
             to="/flexbox"
           />
+          <q-btn
+            align="left"
+            class="full-width"
+            :class="{ active: $route.path === '/qtable' }"
+            flat
+            flexbox
+            icon="mdi-table"
+            label="Quasar table"
+            no-caps
+            to="/qtable"
+          />
         </q-scroll-area>
       </q-drawer>
 

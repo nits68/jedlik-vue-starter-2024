@@ -1,6 +1,6 @@
 import { api } from '../boot/axios';
 import { defineStore } from 'pinia';
-import { Loading } from 'quasar';
+import { Loading, Notify } from 'quasar';
 
 // Interface for Application
 interface IApp {
@@ -38,8 +38,13 @@ export const useStore = defineStore('Store', {
             this.app.documents = res.data;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          Loading.hide();
+          Notify.create({
+            message: 'Can\'t get documents from json-server API',
+            color: 'negative',
+            position: 'top',
+          });
         });
     },
   },
