@@ -82,7 +82,7 @@ export default configure((/* ctx */) => {
       open: true, // opens browser window automatically
       // add port and vueDevtools options by NL:
       port: 8080,
-      vueDevtools: true,
+      vueDevtools: true, // enable Vue Devtools
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
