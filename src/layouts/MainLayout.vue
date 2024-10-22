@@ -160,6 +160,17 @@ let showLeftDrawer = ref(true);
             no-caps
             to="/qtable"
           />
+          <q-btn
+            align="left"
+            class="full-width"
+            :class="{ active: $route.path === '/complex' }"
+            flat
+            flexbox
+            icon="mdi-widgets"
+            label="Complex page"
+            no-caps
+            to="/complex"
+          />
         </q-scroll-area>
       </q-drawer>
 
