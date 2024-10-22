@@ -8,6 +8,7 @@ interface IApp {
   filter: string;
   documents: Array<any>;
   currentYear: number;
+  counter: number;
 }
 
 interface IStore {
@@ -21,7 +22,8 @@ export const useStore = defineStore('Store', {
       filter: '',
       showNewDialog: false,
       currentYear: new Date().getFullYear(),
-    },
+      counter: 123,
+  },
   }),
   getters: {},
   actions: {
