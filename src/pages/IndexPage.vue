@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// import { useStore } from '../stores/store';
+import { useStore } from '../stores/store';
 // import { onMounted } from 'vue';
 // import { useRouter } from 'vue-router';
 
-// const s = useStore();
+const s = useStore();
 // const router = useRouter();
 
 // onMounted(() => {
@@ -14,7 +14,7 @@
 <template>
   <q-page class="column flex-center">
     <q-img alt="Jedlik logo" loading="eager" src="../assets/Jedlik_big.png" width="150px" />
-    <h2>Jedlik Ányos Technikum - Győr - 2024</h2>
+    <h2>Jedlik Ányos Technikum - Győr - {{ s.app.currentYear }}</h2>
   </q-page>
 </template>
 

@@ -7,6 +7,7 @@ interface IApp {
   showNewDialog: boolean;
   filter: string;
   documents: Array<any>;
+  currentYear: number;
 }
 
 interface IStore {
@@ -19,6 +20,7 @@ export const useStore = defineStore('Store', {
       documents: [],
       filter: '',
       showNewDialog: false,
+      currentYear: new Date().getFullYear(),
     },
   }),
   getters: {},
