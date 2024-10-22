@@ -41,5 +41,7 @@ export const useStore = defineStore('Store', {
         });
     },
   },
-  persist: true,
+  persist: {
+    storage: sessionStorage,
+  },
 });
