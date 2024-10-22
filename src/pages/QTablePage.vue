@@ -2,17 +2,17 @@
 import { useStore } from '../stores/store';
 import { onMounted } from 'vue';
 
-const store = useStore();
+const s = useStore();
 
 onMounted(() => {
-  store.GetAllDocuments();
+  s.GetAllDocuments();
 });
 </script>
 
 <template>
   <q-page>
     <div class="q-pa-md">
-      <q-table :rows="store.app.documents" title="Hírdetések (don't forget: 'npm run backend' command)" wrap-cells />
+      <q-table :rows="s.app.documents" title="Hírdetések (don't forget: 'npm run backend' command)" wrap-cells />
     </div>
   </q-page>
 </template>
