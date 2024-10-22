@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "noImplicitAny": false,
-    "types": ["node"],
+    "types": ["node"]
   },
   "exclude": [
     "./dist",

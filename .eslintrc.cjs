@@ -92,4 +92,3 @@ module.exports = {
     'eol-last': ['warn', 'always'],
   },
 };
-
