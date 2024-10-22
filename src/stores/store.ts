@@ -23,7 +23,7 @@ export const useStore = defineStore('Store', {
       showNewDialog: false,
       currentYear: new Date().getFullYear(),
       counter: 123,
-  },
+    },
   }),
   getters: {},
   actions: {
@@ -31,7 +31,7 @@ export const useStore = defineStore('Store', {
       Loading.show();
       this.app.documents = [];
       api
-        .get('/documents')
+        .get('/advertisements')
         .then((res) => {
           Loading.hide();
           if (res?.data) {
