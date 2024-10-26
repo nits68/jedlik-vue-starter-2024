@@ -2,7 +2,6 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "vue.volar",
     "codecoaching.quasar-docs",
     "eamodio.gitlens",
     "formulahendry.auto-close-tag",
@@ -11,7 +10,9 @@
     "hossaini.quasar-intellisense",
     "antfu.iconify",
     "abdelaziz18003.quasar-snippets",
-    "christian-kohler.path-intellisense"
+    "christian-kohler.path-intellisense",
+    "tomoki1207.pdf",
+    "vue.volar"
   ],
   "unwantedRecommendations": [
     "octref.vetur",
