@@ -12,6 +12,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
+    "deploy": "vercel",
     "backend": "json-server --watch db.json --routes json-server.json --delay 1000"
   },
   "dependencies": {
