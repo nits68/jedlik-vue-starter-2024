@@ -1,6 +1,6 @@
 import { api } from '../boot/axios';
 import { defineStore } from 'pinia';
-import { Loading } from 'quasar';
+import { Loading, Notify } from 'quasar';
 
 // Interface for Application
 interface IApp {
@@ -8,6 +8,7 @@ interface IApp {
   filter: string;
   documents: Array<any>;
   currentYear: number;
+  counter: number;
 }
 
 interface IStore {
@@ -21,6 +22,7 @@ export const useStore = defineStore('Store', {
       filter: '',
       showNewDialog: false,
       currentYear: new Date().getFullYear(),
+      counter: 123,
     },
   }),
   getters: {},
@@ -29,15 +31,20 @@ export const useStore = defineStore('Store', {
       Loading.show();
       this.app.documents = [];
       api
-        .get('/documents')
+        .get('/advertisements')
         .then((res) => {
           Loading.hide();
           if (res?.data) {
             this.app.documents = res.data;
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          Loading.hide();
+          Notify.create({
+            message: 'Can\'t get documents from json-server API',
+            color: 'negative',
+            position: 'top',
+          });
         });
     },
   },
