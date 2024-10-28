@@ -1,6 +1,11 @@
 <!-- 06. - List Rendering -->
 <!-- Vue.js Guide: https://vuejs.org/guide/essentials/list.html -->
 
+<!-- A v-for mellett a key attribútum használata is fontos, mert segít a Vue-nak az elemek azonosításában és újrahasználatában. -->
+<!-- Az ESLint alapértelmezett szabályok között is szerepel, hogy a v-for direktíva esetén kötelező a key attribútum használata. -->
+<!-- Bemutató tutorial a key-ről: https://codelistic.com/how-and-why-to-use-the-key-attribute-in-vuejs-v-for-loops -->
+
+
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 
@@ -23,7 +28,8 @@ const myObject = reactive({
     <q-list bordered>
       <!-- A v-for vektor bejárása esetén kaphat két ciklusváltozót is -->
       <!-- Ilyenkor az elem (e) és index (i) ciklusváltozókat zárojelekbe () kell tenni! -->
-      <!-- A key attributum binding-ja kötelező, egyedi érték kell hogy legyen, itt "e" és "i" is jó -->
+      <!-- A key attributum binding-ja kötelező (ESLint szabály követeli meg), -->
+      <!-- egyedi érték kell hogy legyen, itt "e" és "i" is jó-->
       <q-item v-for="(e, i) in napok" :key="i" clickable dense>
         <q-item-section>
           <q-item-label>{{ `${e} - (${i})` }}</q-item-label>
