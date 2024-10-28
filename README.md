@@ -39,7 +39,9 @@ quasar build
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
 ## Disable start Vue Dev Tools
+
 Change "true" to "false" in this line in quasar.config.ts:
+
 ```
 vueDevtools: true, // enable Vue Devtools
 ```
