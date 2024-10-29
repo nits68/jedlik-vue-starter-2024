@@ -28,7 +28,7 @@ let showStatusBar = ref(true);
           <q-btn dense flat icon="mdi-menu" round @click="showLeftDrawer = !showLeftDrawer" />
           <q-toolbar-title class="my-title" :shrink="true" style="cursor: pointer" @click="$router.push({ path: '/' })">
             <q-avatar>
-              <img src="src/assets/Jedlik_small.png" />
+              <img src="../assets/Jedlik_small.png" />
             </q-avatar>
             Jedlik
           </q-toolbar-title>
