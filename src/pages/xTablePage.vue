@@ -13,7 +13,7 @@ onMounted(() => {
 // const selected = ref<any>([]);
 
 function deleteRecord(): void {
-  // store.many.document = { id: selected.value[0].id };
+  // s.many.document = { id: selected.value[0].id };
   s.many.document = { id: s.app.selected[0].id } as IMany;
   s.ManyDeleteById().then(() => {
     s.ManyGetAll();
@@ -24,10 +24,10 @@ function deleteRecord(): void {
 
 function filterUpdate() {
   // Clear button (x) set filter to null
-  if (!s.app.filter) {
+  if (s.app.filter) {
     s.app.filter = '';
   }
-  if (s.app.filter!.length > 0) {
+  if (s.app.filter.length > 0) {
     s.ManyFilter();
   } else {
     s.ManyGetAll();
@@ -62,7 +62,7 @@ const columns: QTableColumn[] = [
   {
     name: 'category',
     label: 'category',
-    field: (row: IMany) => row.category?.categoryNameField,
+    field: (row: IMany) => row.category.categoryNameField,
     align: 'center',
   },
   { name: 'imgField', label: 'imgField', field: (row: IMany) => row.imgField, align: 'center' },
@@ -85,7 +85,7 @@ const columns: QTableColumn[] = [
         v-model:selected="s.app.selected"
         :columns="columns"
         dense
-        :rows="s.many.documents!"
+        :rows="s.many.documents"
         selection="multiple"
         title="Advertisements"
         wrap-cells
@@ -107,17 +107,17 @@ const columns: QTableColumn[] = [
       <!-- Button for delete selected record: -->
       <div class="row justify-center q-ma-md">
         <q-btn
-          v-show="s.app.selected!.length == 1"
+          v-show="s.app.selected.length == 1"
           color="red"
           label="Delete selected record"
           no-caps
           @click="deleteRecord()"
         />
         <q-btn
-          v-show="s.app.selected!.length != 0"
+          v-show="s.app.selected.length != 0"
           class="q-ml-md"
           color="green"
-          :label="s.app.selected!.length == 1 ? 'Clear selection' : 'Clear selections'"
+          :label="s.app.selected.length == 1 ? 'Clear selection' : 'Clear selections'"
           no-caps
           @click="s.app.selected = []"
         />

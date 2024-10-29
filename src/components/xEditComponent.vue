@@ -49,7 +49,7 @@ function Close() {
     <q-card class="q-pa-md" style="width: 60vw; min-width: 300px">
       <q-form @reset="Reset()" @submit="Submit()">
         <div class="row">
-          <div v-if="s.many.document!.id" class="col-12 q-gutter-md">
+          <div v-if="s.many.document.id" class="col-12 q-gutter-md">
             <h5 class="text-center q-mt-sm q-mb-none">Edit advertisement</h5>
             <q-select
               v-model="s.many.document.categoryId"

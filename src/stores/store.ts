@@ -97,7 +97,7 @@ export const useStore = defineStore('Store', {
         .get('/categories')
         .then((res) => {
           Loading.hide();
-          if (res?.data) {
+          if (res.data) {
             this.one.documents = res.data;
           }
         })
@@ -113,7 +113,7 @@ export const useStore = defineStore('Store', {
         .get('/advertisements')
         .then((res) => {
           Loading.hide();
-          if (res?.data) {
+          if (res.data) {
             this.many.documents = res.data;
           }
         })
@@ -129,7 +129,7 @@ export const useStore = defineStore('Store', {
           .get(`/advertisements/${this.many.document.id}`)
           .then((res) => {
             Loading.hide();
-            if (res?.data) {
+            if (res.data) {
               this.many.document = res.data;
               // store startig data to PATCH method:
               Object.assign(this.many.documentOld, this.many.document);
@@ -149,7 +149,7 @@ export const useStore = defineStore('Store', {
           .get(`/advertisements?_expand=category&q=${this.app.filter}`)
           .then((res) => {
             // Loading.hide();
-            if (res?.data) {
+            if (res.data) {
               this.many.documents = res.data;
             }
           })
@@ -161,11 +161,11 @@ export const useStore = defineStore('Store', {
 
     async ManyEditById(): Promise<void> {
       if (this.many.document.id) {
-        const diff: any = {};
-        // the diff object only stores changed fields:
+        const diff: IMany = {} as IMany;
+        // the diff object contains only changed fields:
         Object.keys(this.many.document).forEach((k, i) => {
-          const newValue = Object.values(this.many.document!)[i];
-          const oldValue = Object.values(this.many.documentOld!)[i];
+          const newValue = Object.values(this.many.document)[i];
+          const oldValue = Object.values(this.many.documentOld)[i];
           if (newValue != oldValue) diff[k] = newValue;
         });
         if (Object.keys(diff).length == 0) {
@@ -179,7 +179,7 @@ export const useStore = defineStore('Store', {
             .patch(`/advertisements/${this.many.document.id}`, diff)
             .then((res) => {
               Loading.hide();
-              const data: IMany = res?.data;
+              const data: IMany = res.data;
               if (data.id) {
                 Notify.create({
                   message: `Document with id=${data.id} has been edited successfully!`,
@@ -219,7 +219,7 @@ export const useStore = defineStore('Store', {
           .post('/advertisements', this.many.document)
           .then((res) => {
             Loading.hide();
-            const data: IMany = res?.data;
+            const data: IMany = res.data;
             if (data) {
               Notify.create({
                 message: `New document with id=${data.id} has been saved successfully!`,
@@ -252,7 +252,7 @@ function ShowErrorWithNotify(error: any): void {
   Loading.hide();
   let msg = 'Hiba!';
 
-  // The optional chaining (?.) operator accesses an object's property or calls a function.
+  // The JavaScript optional chaining (?.) operator accesses an object's property or calls a function.
   // If the object accessed or function called is undefined or null,
   // it returns undefined instead of throwing an error.
   if (error?.response?.data?.status) {
