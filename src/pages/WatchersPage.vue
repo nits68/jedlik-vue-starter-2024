@@ -30,7 +30,7 @@ watch(question, async (newValue, old) => {
           imgURL.value = data.image;
         });
     } catch (error) {
-      answer.value = 'Error! Could not reach the API. ' + error;
+      answer.value = `Error! Couldn't reach the API. ${error}`;
     } finally {
       loading.value = false;
     }
