@@ -17,7 +17,7 @@
   "prettier.printWidth": 120,
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
-    "**/.git": true,
+    "**/.git": false,
     "**/.gitignore": true,
     "**/package-lock.json": true,
     "**/*.npmrc": true
