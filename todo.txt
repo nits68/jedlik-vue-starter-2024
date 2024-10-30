@@ -2,7 +2,7 @@ to-do:
 1. GitHub repo klónozása, átnevezése (projekt mappa) feladatlap szerint
     https://github.com/nits68/jedlik-vue-starter-2024
 2. Belépés a projekt mappába, majd Node.js csomagok telepítése: "npm i",
-3. Backend szerver másolása, backend szerver indítása, ha a szerver lokális gépen fut
+3. Források másolása, backend szerver másolása és indítása, ha a backend szerver lokális gépen fut
 4. Starter sablon megnyitása: "code .", vagy helyi menüből, ajánlott bővítmények telepítése/frissítése,
 5. Sorrendben: "origin/exam" branch kiválasztása, ".git" mappa törlése, verziókövetés inicializálása, majd "start" nevű commit készítése.
 6. Minta alakalmazás-route-ok (path: /x*) törlése a router/routes.ts állományból
