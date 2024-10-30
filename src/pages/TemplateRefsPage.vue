@@ -19,7 +19,9 @@ const textInput = ref('kilincs');
 
 onMounted(() => {
   // Első egyszerű példában fókuszba helyezzük az input mezőt:
-  input.value!.focus();
+  if (input.value) input.value.focus();
+  // vagy:
+  // input.value!.focus();
 
   // Második példában egy lista elemeire hivatkozunk:
   if (itemRefs.value) {
