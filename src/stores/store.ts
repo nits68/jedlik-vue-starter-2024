@@ -11,6 +11,8 @@ export interface IApp {
   filter: string;
   selected: Array<any>;
   currentYear: number;
+  dummy: any;
+  dummys: Array<any>;
 }
 
 // Interfaces for OneSide
@@ -71,6 +73,8 @@ export const useStore = defineStore('Store', {
       showEditDialog: false,
       showNewDialog: false,
       currentYear: new Date().getFullYear(),
+      dummy: null,
+      dummys: [],
     },
     one: {
       document: {} as IOne,
