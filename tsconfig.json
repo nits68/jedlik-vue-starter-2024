@@ -11,6 +11,7 @@
     "./.quasar",
     "./.vscode",
     "./node_modules",
+    "./backend",
     "./src-capacitor",
     "./src-cordova",
     "./quasar.config.*.temporary.compiled*"
