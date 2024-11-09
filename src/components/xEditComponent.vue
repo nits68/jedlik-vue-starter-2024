@@ -23,11 +23,10 @@ function Submit() {
     cancel: true,
     persistent: true,
   })
-    .onOk(() => {
-      s.ManyEditById().then(() => {
-        s.ManyGetAll();
-        s.app.showEditDialog = false;
-      });
+    .onOk(async () => {
+      await s.ManyEditById();
+      await s.ManyGetAll();
+      s.app.showEditDialog = false;
     })
     .onCancel(() => {
       s.app.showEditDialog = false;

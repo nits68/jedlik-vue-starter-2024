@@ -27,11 +27,10 @@ function deleteDocument(id: number) {
     cancel: true,
     persistent: true,
   })
-    .onOk(() => {
+    .onOk(async () => {
       s.many.document = { id: id } as IMany;
-      s.ManyDeleteById().then(() => {
-        s.ManyGetAll();
-      });
+      await s.ManyDeleteById()
+      await s.ManyGetAll();
     })
     .onCancel(() => {
       // router.push("/xcard");

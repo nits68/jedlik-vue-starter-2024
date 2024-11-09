@@ -95,147 +95,133 @@ export const useStore = defineStore('Store', {
   // getters: {},
   actions: {
     async OneGetAll(): Promise<void> {
-      Loading.show();
-      this.one.documents = [];
-      api
-        .get('/categories')
-        .then((res) => {
-          Loading.hide();
-          if (res.data) {
-            this.one.documents = res.data;
-          }
-        })
-        .catch((error) => {
-          ShowErrorWithNotify(error);
-        });
+      try {
+        Loading.show();
+        this.one.documents = [];
+        const res = await api.get('/categories');
+        if (res?.data) {
+          this.one.documents = res.data;
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
+      }
     },
 
     async ManyGetAll(): Promise<void> {
-      Loading.show();
-      this.many.documents = [];
-      api
-        .get('/advertisements')
-        .then((res) => {
-          Loading.hide();
-          if (res.data) {
-            this.many.documents = res.data;
-          }
-        })
-        .catch((error) => {
-          ShowErrorWithNotify(error);
-        });
+      try {
+        Loading.show();
+        this.many.documents = [];
+        const res = await api.get('/advertisements');
+        if (res?.data) {
+          this.many.documents = res.data;
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
+      }
     },
 
     async ManyGetById(): Promise<void> {
-      if (this.many.document.id) {
+      try {
         Loading.show();
-        api
-          .get(`/advertisements/${this.many.document.id}`)
-          .then((res) => {
-            Loading.hide();
-            if (res.data) {
-              this.many.document = res.data;
-              // store startig data to PATCH method:
-              Object.assign(this.many.documentOld, this.many.document);
-            }
-          })
-          .catch((error) => {
-            ShowErrorWithNotify(error);
-          });
+        if (this.many?.document?.id) {
+          const res = await api.get(`/advertisements/${this.many.document.id}`);
+          if (res?.data) {
+            this.many.document = res.data;
+            // store startig data to PATCH method and Reset button:
+            Object.assign(this.many.documentOld, this.many.document);
+          }
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
       }
     },
 
     async ManyFilter(): Promise<void> {
-      if (this.app.filter) {
-        this.many.documents = [];
-        // Loading.show();
-        api
-          .get(`/advertisements?_expand=category&q=${this.app.filter}`)
-          .then((res) => {
-            // Loading.hide();
-            if (res.data) {
-              this.many.documents = res.data;
-            }
-          })
-          .catch((error) => {
-            ShowErrorWithNotify(error);
-          });
+      try {
+        if (this.app?.filter) {
+          this.many.documents = [];
+          Loading.show();
+          const res = await api.get(`/advertisements?_expand=category&q=${this.app.filter}`);
+          if (res?.data) {
+            this.many.documents = res.data;
+          }
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
       }
     },
 
     async ManyEditById(): Promise<void> {
-      if (this.many.document.id) {
-        const diff: IMany = {} as IMany;
-        // the diff object contains only changed fields:
-        Object.keys(this.many.document).forEach((k, i) => {
-          const newValue = Object.values(this.many.document)[i];
-          const oldValue = Object.values(this.many.documentOld)[i];
-          if (newValue != oldValue) diff[k] = newValue;
-        });
-        if (Object.keys(diff).length == 0) {
-          Notify.create({
-            message: 'Nothing changed!',
-            color: 'negative',
+      try {
+        if (this.many?.document?.id) {
+          const diff: IMany = {} as IMany;
+          Object.keys(this.many.document).forEach((k, i) => {
+            const newValue = Object.values(this.many.document)[i];
+            const oldValue = Object.values(this.many.documentOld)[i];
+            if (newValue != oldValue) diff[k] = newValue;
           });
-        } else {
-          Loading.show();
-          api
-            .patch(`/advertisements/${this.many.document.id}`, diff)
-            .then((res) => {
-              Loading.hide();
-              const data: IMany = res.data;
-              if (data.id) {
-                Notify.create({
-                  message: `Document with id=${data.id} has been edited successfully!`,
-                  color: 'positive',
-                });
-              }
-            })
-            .catch((error) => {
-              ShowErrorWithNotify(error);
+          if (Object.keys(diff).length == 0) {
+            Notify.create({
+              message: 'Nothing changed!',
+              color: 'negative',
             });
+          } else {
+            Loading.show();
+            const res: IMany = await api.patch(`/advertisements/${this.many.document.id}`, diff);
+            if (res?.id) {
+              Notify.create({
+                message: `Document with id=${res.id} has been edited successfully!`,
+                color: 'positive',
+              });
+            }
+          }
         }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
       }
     },
 
     async ManyDeleteById(): Promise<void> {
-      if (this.many.document.id) {
-        Loading.show();
-        api
-          .delete(`/advertisements/${this.many.document.id}`)
-          .then(() => {
-            Loading.hide();
-            Notify.create({
-              message: `Document with id=${this.many.document.id} has been deleted successfully!`,
-              color: 'positive',
-            });
-          })
-          .catch((error) => {
-            ShowErrorWithNotify(error);
+      try {
+        if (this.many?.document?.id) {
+          Loading.show();
+          await api.delete(`/advertisements/${this.many.document.id}`);
+          Notify.create({
+            message: `Document with id=${this.many.document.id} has been deleted successfully!`,
+            color: 'positive',
           });
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
       }
     },
 
     async ManyCreate(): Promise<void> {
-      if (this.many.document) {
+      try {
         Loading.show();
-        api
-          .post('/advertisements', this.many.document)
-          .then((res) => {
-            Loading.hide();
-            const data: IMany = res.data;
-            if (data) {
-              Notify.create({
-                message: `New document with id=${data.id} has been saved successfully!`,
-                color: 'positive',
-              });
-              // Example page routing from store (no import required)
-              // this.router.push('/page_path');
-            }
-          })
-          .catch((error) => {
-            ShowErrorWithNotify(error);
+        const res: IMany = await api.post('/advertisements', this.many.document);
+        if (res?.id) {
+          Notify.create({
+            message: `New document with id=${res.id} has been saved successfully!`,
+            color: 'positive',
           });
+        }
+      } catch (error) {
+        ShowErrorWithNotify(error);
+      } finally {
+        Loading.hide();
       }
     },
   },

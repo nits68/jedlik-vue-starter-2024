@@ -12,25 +12,23 @@ onMounted(() => {
 // Selected row(s) -> selection="single" or selection="multiple"
 // const selected = ref<any>([]);
 
-function deleteRecord(): void {
+async function deleteRecord(): Promise<void> {
   // s.many.document = { id: selected.value[0].id };
   s.many.document = { id: s.app.selected[0].id } as IMany;
-  s.ManyDeleteById().then(() => {
-    s.ManyGetAll();
-  });
-  // selected.value = [];
+  await s.ManyDeleteById()
+  await s.ManyGetAll();
   s.app.selected = [];
 }
 
-function filterUpdate() {
+async function filterUpdate() {
   // Clear button (x) set filter to null
   if (s.app.filter) {
     s.app.filter = '';
   }
   if (s.app.filter.length > 0) {
-    s.ManyFilter();
+    await s.ManyFilter();
   } else {
-    s.ManyGetAll();
+    await s.ManyGetAll();
   }
 }
 

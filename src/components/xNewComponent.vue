@@ -22,11 +22,10 @@ function Submit() {
     cancel: true,
     persistent: true,
   })
-    .onOk(() => {
-      s.ManyCreate().then(() => {
-        s.ManyGetAll();
-        s.app.showNewDialog = false;
-      });
+    .onOk(async () => {
+      await s.ManyCreate();
+      await s.ManyGetAll();
+      s.app.showNewDialog = false;
     })
     .onCancel(() => {
       s.app.showNewDialog = false;
