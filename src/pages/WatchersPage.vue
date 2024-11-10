@@ -19,16 +19,18 @@ interface IYesNoAPIResponse {
 watch(question, async (newValue, old) => {
   oldValue.value = old;
   if (newValue.endsWith('?') && newValue.length > 1) {
-    loading.value = true;
     answer.value = 'Thinking...';
     imgURL.value = 'None';
     try {
-      await fetch('https://yesno.wtf/api')
-        .then((res) => res.json())
-        .then((data: IYesNoAPIResponse) => {
-          answer.value = data.answer;
-          imgURL.value = data.image;
-        });
+      loading.value = true;
+      const data = await fetch('https://yesno.wtf/api');
+      const res: IYesNoAPIResponse = await data.json();
+      if (res?.answer == 'yes' || res?.answer == 'no') {
+        answer.value = res.answer;
+        imgURL.value = res.image;
+      } else {
+        answer.value = 'Error! API returned an unexpected answer.';
+      }
     } catch (error) {
       answer.value = `Error! Couldn't reach the API. ${error}`;
     } finally {

@@ -28,24 +28,22 @@ export const useStore = defineStore('Store', {
   getters: {},
   actions: {
     async GetAllDocuments(): Promise<void> {
-      Loading.show();
-      this.app.documents = [];
-      api
-        .get('/advertisements')
-        .then((res) => {
-          Loading.hide();
-          if (res?.data) {
-            this.app.documents = res.data;
-          }
-        })
-        .catch(() => {
-          Loading.hide();
-          Notify.create({
-            message: 'Can\'t get documents from json-server API',
-            color: 'negative',
-            position: 'top',
-          });
+      try {
+        Loading.show();
+        this.app.documents = [];
+        const res = await api.get('/advertisements');
+        if (res?.data) {
+          this.app.documents = res.data;
+        }
+      } catch (error) {
+        Notify.create({
+          message: "Can't get documents from json-server API",
+          color: 'negative',
+          position: 'top',
         });
+      } finally {
+        Loading.hide();
+      }
     },
   },
   persist: {
