@@ -1,6 +1,6 @@
 import { api } from '../boot/axios';
 import { defineStore } from 'pinia';
-import { Loading } from 'quasar';
+import { Loading, Notify } from 'quasar';
 
 // Interface for Application
 interface IApp {
@@ -23,22 +23,24 @@ export const useStore = defineStore('Store', {
       currentYear: new Date().getFullYear(),
     },
   }),
-  getters: {},
+  // getters: {},
   actions: {
     async GetAllDocuments(): Promise<void> {
-      Loading.show();
-      this.app.documents = [];
-      api
-        .get('/documents')
-        .then((res) => {
-          Loading.hide();
-          if (res?.data) {
-            this.app.documents = res.data;
-          }
-        })
-        .catch((error) => {
-          console.log(error);
+      try {
+        Loading.show();
+        this.app.documents = [];
+        const res = await api.get('/documents');
+        if (res?.data) {
+          this.app.documents = res.data;
+        }
+      } catch (error: any) {
+        Notify.create({
+          message: `Error: ${error?.message || 'While fetching documents.'}`,
+          color: 'negative',
         });
+      } finally {
+        Loading.hide();
+      }
     },
   },
   persist: {
