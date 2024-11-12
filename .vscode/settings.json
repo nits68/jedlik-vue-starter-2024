@@ -3,11 +3,18 @@
   "editor.guides.bracketPairs": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
+  "editor.codeActionsOnSave": [
+    "source.fixAll.eslint"
+  ],
   "editor.mouseWheelZoom": true,
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "vue"
+  ],
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "git.enableSmartCommit": true,
@@ -19,5 +26,6 @@
   "files.exclude": {
     "**/package-lock.json": true,
     "**/*.npmrc": true
-  }
+  },
+  "workbench.editor.closeOnFileDelete": true
 }
