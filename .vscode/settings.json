@@ -27,5 +27,6 @@
     "**/package-lock.json": true,
     "**/*.npmrc": true,
     "**/.git": false
-  }
+  },
+  "workbench.editor.closeOnFileDelete": true
 }
