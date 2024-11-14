@@ -1,25 +1,33 @@
 <script setup lang="ts">
-import { useStore } from '../stores/store';
-// import { onMounted } from 'vue';
-// import { useRouter } from 'vue-router';
+import { ContainerConfig } from 'konva/lib/Container';
+import { CircleConfig } from 'konva/lib/shapes/Circle';
+import { Ref, ref } from 'vue';
 
-const s = useStore();
-// const router = useRouter();
+const configKonva: ContainerConfig = {
+  width: 800,
+  height: 600,
+};
 
-// onMounted(() => {
-//   s.GetAllDocuments();
-// });
+const configCircle: Ref<CircleConfig> = ref({
+  x: 400,
+  y: 300,
+  radius: 170,
+  fill: 'red',
+  stroke: 'black',
+  strokeWidth: 4,
+});
 </script>
 
 <template>
-  <q-page class="column flex-center">
-    <q-img alt="Jedlik logo" loading="eager" src="../assets/Jedlik_big.png" width="150px" />
-    <h2>Jedlik Ányos Technikum - Győr - {{ s.app.currentYear }}</h2>
+  <q-page>
+    <div class="flex flex-center">
+      <q-badge> Radius: </q-badge>
+      <q-slider v-model="configCircle.radius" label label-always :max="200" :min="20" switch-label-side />
+      <v-stage :config="configKonva">
+        <v-layer>
+          <v-circle :config="configCircle"></v-circle>
+        </v-layer>
+      </v-stage>
+    </div>
   </q-page>
 </template>
-
-<style lang="scss" scoped>
-h2 {
-  font-size: 3vw;
-}
-</style>
