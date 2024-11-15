@@ -25,6 +25,11 @@ const myObject = reactive({
 <template>
   <q-page>
     <h2>A listák renderelése</h2>
+    <h4>Egyszerű HTML lista készítése</h4>
+    <ul>
+      <li v-for="nap in napok" :key="nap">{{ nap }}</li>
+    </ul>
+    <h4>Quasar lista készítése</h4>
     <q-list bordered>
       <!-- A v-for vektor bejárása esetén kaphat két ciklusváltozót is -->
       <!-- Ilyenkor az elem (e) és index (i) ciklusváltozókat zárojelekbe () kell tenni! -->
@@ -35,7 +40,7 @@ const myObject = reactive({
           <q-item-label>{{ `${e} - (${i})` }}</q-item-label>
         </q-item-section>
         <q-item-section side>
-          <q-btn color="primary" :label="`Töröl ${i}`" no-caps @click="napTörlése(e)" />
+          <q-btn color="primary" :label="`Töröl ${e}`" no-caps @click="napTörlése(e)" />
         </q-item-section>
       </q-item>
     </q-list>
