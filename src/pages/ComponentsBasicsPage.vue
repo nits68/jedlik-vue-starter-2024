@@ -2,7 +2,7 @@
 <!-- Vue.js Guide: https://vuejs.org/guide/essentials/component-basics.html -->
 
 <script setup lang="ts">
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
 import BlogPostComponent from '../components/BlogPostComponent.vue';
 import ButtonCounterComponent from '../components/ButtonCounterComponent.vue';

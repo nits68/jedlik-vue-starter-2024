@@ -35,10 +35,8 @@ const név = computed({
   set(newValue) {
     // setter - íráskor fut le
     if (newValue.indexOf(' ') != -1) {
-      // vnév.value = newValue.split(' ')[0];
-      // knév.value = newValue.split(' ')[1];
-      // vagy rövidebben:
-      [vnév.value, knév.value] = newValue.split(' ');
+      vnév.value = newValue.split(' ')[0]!;
+      knév.value = newValue.split(' ')[1]!;
     } else {
       vnév.value = newValue;
       knév.value = '';

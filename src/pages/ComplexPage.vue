@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref, onMounted, onUpdated, reactive, ref, watch, computed } from 'vue';
+import { type Ref, onMounted, onUpdated, reactive, ref, watch, computed } from 'vue';
 import YesOrNoComponent from '../components/YesOrNoComponent.vue';
 
 // Reaktivitás:

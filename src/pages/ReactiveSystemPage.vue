@@ -5,7 +5,7 @@
 <!-- az érték megváltozásakor automatikusan frissüljenek (update) -->
 <script setup lang="ts">
 import { useStore } from '../stores/store';
-import { ref, reactive, Ref } from 'vue';
+import { ref, reactive, type Ref } from 'vue';
 
 let nemReaktívVáltozó = 0; // nem reactive típusos változó
 let nemReaktívTípusosVáltozó: number = 0; // nem reactív típusos változó

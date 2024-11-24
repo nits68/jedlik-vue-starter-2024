@@ -48,7 +48,7 @@ function warn(message: string, event: Event) {
 <template>
   <q-page class="column flex-center">
     <h4>Inline Handlers</h4>
-    <q-btn color="primary"  glossy no-caps @click="counter++">Counter: {{ counter }}</q-btn>
+    <q-btn color="primary" glossy no-caps @click="counter++">Counter: {{ counter }}</q-btn>
 
     <h4>Accessing typed 'event' Argument in Inline Handlers</h4>
     <q-btn color="primary" glossy label="Submit" no-caps stack @click="(event: Event) => warn('Hello World!', event)" />
@@ -62,7 +62,7 @@ function warn(message: string, event: Event) {
         hint="Name and surname"
         label="Your name *"
         lazy-rules
-        :rules="[(val: any) => val !== null && val !== '' || 'Please type something']"
+        :rules="[(val: any) => (val !== null && val !== '') || 'Please type something']"
       />
 
       <q-input
@@ -72,17 +72,17 @@ function warn(message: string, event: Event) {
         label="Your age *"
         lazy-rules
         :rules="[
-          (val: any) => val !== null && val !== '' || 'Please type your age',
-          (val: any) => val > 0 && val < 100 || 'Please type a real age',
+          (val: any) => (val !== null && val !== '') || 'Please type your age',
+          (val: any) => (val > 0 && val < 100) || 'Please type a real age',
         ]"
         type="number"
       />
 
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <q-toggle v-model="accept" label="I accept the license and terms" name="accept" />
 
       <div>
-        <q-btn color="primary" glossy label="Submit" type="submit" />
-        <q-btn class="q-ml-sm" color="red-5" glossy label="Reset" type="reset" />
+        <q-btn id="submit" color="primary" glossy label="Submit" type="submit" />
+        <q-btn id="reset" class="q-ml-sm" color="red-5" glossy label="Reset" type="reset" />
       </div>
     </q-form>
   </q-page>
