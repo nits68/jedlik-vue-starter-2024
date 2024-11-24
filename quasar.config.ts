@@ -3,9 +3,9 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
-import { configure } from 'quasar/wrappers';
+import { defineConfig } from '#q-app/wrappers';
 
-export default configure((/* ctx */) => {
+export default defineConfig((/* ctx */) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -13,7 +13,7 @@ export default configure((/* ctx */) => {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['axios','konva'],
+    boot: ['axios', 'konva'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -39,6 +39,12 @@ export default configure((/* ctx */) => {
         node: 'node20',
       },
 
+      typescript: {
+        strict: true,
+        vueShim: true,
+        // extendTsConfig (tsConfig) {}
+      },
+
       vueRouterMode: 'history', // available values: 'hash', 'history', change by NL
       // vueRouterBase,
       // vueDevtools,
@@ -62,9 +68,7 @@ export default configure((/* ctx */) => {
         [
           'vite-plugin-checker',
           {
-            vueTsc: {
-              tsconfigPath: 'tsconfig.vue-tsc.json',
-            },
+            vueTsc: true,
             eslint: {
               lintCommand: 'eslint "./**/*.{js,ts,mjs,cjs,vue}"',
             },
@@ -205,7 +209,7 @@ export default configure((/* ctx */) => {
       // extendBexScriptsConf (esbuildConf) {},
       // extendBexManifestJson (json) {},
 
-      contentScripts: ['my-content-script'],
+      extraScripts: [],
     },
   };
 });

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ContainerConfig } from 'konva/lib/Container';
-import { CircleConfig } from 'konva/lib/shapes/Circle';
-import { Ref, ref } from 'vue';
+import { type ContainerConfig } from 'konva/lib/Container';
+import { type CircleConfig } from 'konva/lib/shapes/Circle';
+import { type Ref, ref } from 'vue';
 
 const configKonva: ContainerConfig = {
   width: 800,

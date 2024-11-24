@@ -32,7 +32,7 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "files.exclude": {
     "**/package-lock.json": true,
-    "**/*.npmrc": true,
+    "**/*.npmrc": false,
     "**/.git": false
   },
   "workbench.editor.closeOnFileDelete": true
