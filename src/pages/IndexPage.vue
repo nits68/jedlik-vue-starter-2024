@@ -26,7 +26,15 @@ const configCircle: Ref<CircleConfig> = ref({
   <q-page>
     <div class="flex flex-center">
       <q-badge> Radius: </q-badge>
-      <q-slider v-model="configCircle.radius" label label-always :max="200" :min="20" switch-label-side />
+      <q-slider
+        v-model="configCircle.radius"
+        class="q-mx-md"
+        label
+        label-always
+        :max="200"
+        :min="20"
+        switch-label-side
+      />
       <v-stage :config="configKonva">
         <v-layer>
           <v-circle :config="configCircle"></v-circle>
