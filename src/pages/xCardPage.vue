@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IMany, useStore } from '../stores/store';
+import { type IMany, useStore } from '../stores/store';
 import { Dialog } from 'quasar';
 import { onMounted } from 'vue';
 import xEdit from '../components/xEditComponent.vue';
@@ -29,7 +29,7 @@ function deleteDocument(id: number) {
   })
     .onOk(async () => {
       s.many.document = { id: id } as IMany;
-      await s.ManyDeleteById()
+      await s.ManyDeleteById();
       await s.ManyGetAll();
     })
     .onCancel(() => {
@@ -48,7 +48,15 @@ function filterUpdate() {
 
 <template>
   <q-page class="q-pa-md">
-    <q-input v-model="s.app.filter" dense filled label="Filter" type="text" @update:model-value="filterUpdate()" />
+    <q-input
+      id="filter"
+      v-model="s.app.filter"
+      dense
+      filled
+      label="Filter"
+      type="text"
+      @update:model-value="filterUpdate()"
+    />
     <div class="row">
       <div v-for="e in s.many.documents" :key="e.id" class="col-sm-12 col-md-6 col-lg-4">
         <q-card class="q-ma-md">

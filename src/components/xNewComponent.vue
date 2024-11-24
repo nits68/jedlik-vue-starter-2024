@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IMany, useStore } from '../stores/store';
+import { type IMany, useStore } from '../stores/store';
 import { date, Dialog } from 'quasar';
 import { useRouter } from 'vue-router';
 
@@ -52,6 +52,7 @@ function Close() {
       <q-form @reset="Reset()" @submit="Submit()">
         <h5 class="text-center q-mt-sm q-mb-none">Add new advertisement</h5>
         <q-select
+          id="categoryNameField"
           v-model="s.many.document.categoryId"
           clearable
           emit-value
@@ -64,6 +65,7 @@ function Close() {
           :rules="[(v) => v != null || 'Please choose one!']"
         />
         <q-input
+          id="titleField"
           v-model="s.many.document.titleField"
           filled
           label="titleField"
@@ -71,6 +73,7 @@ function Close() {
           type="text"
         />
         <q-input
+          id="descField"
           v-model="s.many.document.descField"
           filled
           label="descField"
@@ -78,6 +81,7 @@ function Close() {
           type="textarea"
         />
         <q-input
+          id="dateField"
           v-model="s.many.document.dateField"
           clearable
           filled
@@ -86,9 +90,10 @@ function Close() {
           type="date"
         />
         <div class="row justify-end q-mb-md">
-          <q-checkbox v-model="s.many.document.boolField" filled label="boolField" />
+          <q-checkbox id="boolField" v-model="s.many.document.boolField" filled label="boolField" />
         </div>
         <q-input
+          id="priceField"
           v-model="s.many.document.priceField"
           filled
           label="priceField"
@@ -98,6 +103,7 @@ function Close() {
           type="number"
         />
         <q-input
+          id="imgField"
           v-model="s.many.document.imgField"
           clearable
           filled

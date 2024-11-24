@@ -1,32 +1,12 @@
 {
   "advertisements": [
     {
-      "id": 1,
-      "categoryId": 2,
-      "titleField": "Renault Trafic 1.9 dCi L1H2 Business",
-      "descField": "A HŰTŐ HIBÁTLANUL MŰKÖDIK. Az autóhoz fél év szavatosság, és km igazolás jár. Az autó felszereltségének ellenőrzése megtekintéskor a vevő felelőssége, utólag kiderülő eltérésre semmilyen felelősséget nem áll módunkban vállalni!",
-      "dateField": "2022-02-21",
-      "boolField": true,
-      "priceField": "999999",
-      "imgField": "https://nits68.github.io/static/hahu_old/01.jpg"
-    },
-    {
-      "id": 3,
-      "categoryId": 4,
-      "titleField": "BMW K 1600 B Grand America",
-      "descField": "Eladó egy BMW K1600-as Grand America! A motort 2018. novemberében márkakereskedésben vásároltam, amely még mindig GARANCIÁLIS. A motor full-full felszereltségű, így számos extrával rendelkezik, pl gyorsváltó + hátramenet, fűthető ülések, fűthető markolat, elektromosan állítható futómű, elektromosan állítható szélvédő, tempomat, ABS, DTC, ködlámpa, riasztó.",
-      "dateField": "2021-01-01",
-      "boolField": true,
-      "priceField": 6990000,
-      "imgField": "https://nits68.github.io/static/hahu_old/03.jpg"
-    },
-    {
       "id": 4,
       "categoryId": 5,
       "titleField": "Peugeot Boxer",
       "descField": "Eladó 15 személyes Peugeot Boxer! Műszaki vizsgája lejárt, a gépkocsi működőképes, bővebb információ telefonon.",
       "dateField": "2022-02-21",
-      "boolField": true,
+      "boolField": false,
       "priceField": 250000,
       "imgField": "https://nits68.github.io/static/hahu_old/04.jpg"
     },
@@ -149,6 +129,16 @@
       "boolField": true,
       "priceField": 26950000,
       "imgField": "https://nits68.github.io/static/hahu_old/19.jpg"
+    },
+    {
+      "dateField": "2024-11-24",
+      "imgField": "https://nits68.github.io/static/hahu_old/01.jpg",
+      "boolField": false,
+      "categoryId": 1,
+      "titleField": "wedwe",
+      "descField": "ewewew",
+      "priceField": "2322",
+      "id": 20
     }
   ],
   "categories": [

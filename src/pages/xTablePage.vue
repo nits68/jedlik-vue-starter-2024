@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { IMany, useStore } from '../stores/store';
+import { type IMany, useStore } from '../stores/store';
 import { onMounted } from 'vue';
-import { QTableColumn } from 'quasar';
+import { type QTableColumn } from 'quasar';
 
 const s = useStore();
 
@@ -15,7 +15,7 @@ onMounted(() => {
 async function deleteRecord(): Promise<void> {
   // s.many.document = { id: selected.value[0].id };
   s.many.document = { id: s.app.selected[0].id } as IMany;
-  await s.ManyDeleteById()
+  await s.ManyDeleteById();
   await s.ManyGetAll();
   s.app.selected = [];
 }
