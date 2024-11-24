@@ -1,5 +1,6 @@
 /dist
 /help
+/backend
 /src-capacitor
 /src-cordova
 /.quasar

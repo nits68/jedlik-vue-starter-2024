@@ -7,7 +7,7 @@ const s = useStore();
 // const router = useRouter();
 
 // onMounted(() => {
-//   s.GetAllDocuments();
+//   s.ManyGetAll();
 // });
 </script>
 
