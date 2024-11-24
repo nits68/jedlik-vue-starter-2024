@@ -12,7 +12,7 @@ const s = useStore();
 </script>
 
 <template>
-  <q-page class="column flex-center">
+  <q-page  class="column flex-center">
     <q-img alt="Jedlik logo" loading="eager" src="../assets/Jedlik_big.png" width="150px" />
     <h2>Jedlik Ányos Technikum - Győr - {{ s.app.currentYear }}</h2>
   </q-page>
