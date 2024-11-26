@@ -4,8 +4,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
 
-const dynamicId = ref(undefined);
-// const dynamicId = ref('myId');
+const dynamicId = ref('myId');
 
 const id = ref('myDinamicId');
 
@@ -52,12 +51,15 @@ function toggleActive() {
   <!-- Az egyirányú adatkötés Vue.js direktívája a "v-bind:", rövidítése ":" -->
   <q-page>
     <!-- Attribute Bindings -->
-    <!-- Ha a dynamicId értéke undefined, akkor az "id" attributum nem kerül rendelerésre-->
+    
     <p :id="dynamicId">Bekezdés dinamikus id-val (F12-vel keresd meg az azonosítóját!)</p>
 
     <!-- A v-model Vue.js direktíva a kétirányú adatkötésre szolgál, lsd. később -->
-    <!-- Az indításkor undefined értékű "dynamicId" változónak adunk itt értéket -->
+    <!-- Az indításkor "myId" értékű "dynamicId" változónak adunk itt értéket -->
+    <!-- Ha a dynamicId értéke undefined lesz (X-el törlöd a mező végén), akkor az "id" attributum nem kerül rendelerésre-->
+    <!-- Induláskor nem lehet a dynamicId alapértelmezett értéke undefined -->
     <q-input v-model="dynamicId" clearable label="Add meg a paragrafus azonosítóját!" outlined />
+    <p>A dynamicId aktuális értéke:  {{ dynamicId == undefined ? 'undefined' :  dynamicId }}</p>
 
     <!-- Same-name Shorthand -->
     <!-- Ha a TS/JS változó azonosítója eggyezik a "kötendő" attribútum azonosítójával, akkor röviden: -->

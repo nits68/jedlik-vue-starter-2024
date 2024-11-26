@@ -2,7 +2,7 @@
 <!-- Vue.js Guide: https://vuejs.org/guide/essentials/watchers.html -->
 
 <script setup lang="ts">
-import { ref, Ref, watch } from 'vue';
+import { ref, type Ref, watch } from 'vue';
 
 const question: Ref<string> = ref('');
 const oldValue: Ref<string> = ref('');
