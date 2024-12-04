@@ -8,10 +8,10 @@ import { useStore } from '../stores/store';
 
 const s = useStore();
 
-let showMenuBar = ref(true);
-let showLeftDrawer = ref(true);
-let showRightDrawer = ref(true);
-let showStatusBar = ref(true);
+const showMenuBar = ref(true);
+const showLeftDrawer = ref(true);
+const showRightDrawer = ref(true);
+const showStatusBar = ref(true);
 
 // onMounted(() => {
 // ...
