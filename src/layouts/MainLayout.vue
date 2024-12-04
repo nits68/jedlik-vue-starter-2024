@@ -7,8 +7,8 @@ import { useRoute } from 'vue-router';
 
 const $route = useRoute();
 
-let showMenuBar = ref(true);
-let showLeftDrawer = ref(true);
+const showMenuBar = ref(true);
+const showLeftDrawer = ref(true);
 </script>
 
 <template>

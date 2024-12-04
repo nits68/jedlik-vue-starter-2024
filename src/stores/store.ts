@@ -35,7 +35,7 @@ export const useStore = defineStore('Store', {
         if (res?.data) {
           this.app.documents = res.data;
         }
-      } catch (error) {
+      } catch {
         Notify.create({
           message: "Can't get documents from json-server API",
           color: 'negative',

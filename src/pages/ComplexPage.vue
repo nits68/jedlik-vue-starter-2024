@@ -3,7 +3,7 @@ import { type Ref, onMounted, onUpdated, reactive, ref, watch, computed } from '
 import YesOrNoComponent from '../components/YesOrNoComponent.vue';
 
 // Reaktivitás:
-let rektívVáltozó: Ref<number> = ref(123);
+const rektívVáltozó: Ref<number> = ref(123);
 
 interface IRectiveObject {
   count: number;
