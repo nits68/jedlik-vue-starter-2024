@@ -2,8 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "hossaini.quasar-intellisense",
-    "vue.volar"
+    "hossaini.quasar-intellisense"
   ],
   "unwantedRecommendations": [
     "octref.vetur",
