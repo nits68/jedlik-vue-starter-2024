@@ -16,8 +16,6 @@
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
   "eslint.validate": [
-    "javascript",
-    "javascriptreact",
     "typescript",
     "vue"
   ],

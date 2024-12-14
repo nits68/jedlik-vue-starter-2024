@@ -15,7 +15,7 @@ export default [
      *
      * ESLint requires "ignores" key to be the only one in this object
      */
-    // ignores: []
+    ignores: ["node_modules/**/*", "dist/**/*", ".git/**/*", ".quasar/**/*", ".vscode/**/*", "help/**/*"],
   },
 
   ...pluginQuasar.configs.recommended(),
