@@ -5,7 +5,7 @@
 // import { useRouter } from 'vue-router';
 
 // const s = useStore();
-// const router = useRouter();
+// const r = useRouter();
 
 // onMounted(() => {
 //   s.ManyGetAll();

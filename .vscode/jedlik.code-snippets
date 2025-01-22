@@ -249,7 +249,7 @@
       "",
       "// const s = useStore();",
       "",
-      "// const router = useRouter();",
+      "// const r = useRouter();",
       "",
       "// onMounted(() => {",
       "//   s.GetAllDocuments();",
