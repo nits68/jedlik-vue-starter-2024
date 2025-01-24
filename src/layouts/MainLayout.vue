@@ -5,7 +5,7 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-const r = useRoute();
+const $route = useRoute();
 
 const showMenuBar = ref(true);
 const showLeftDrawer = ref(true);
@@ -32,7 +32,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width no-margin"
-            :class="{ active: r.path === '/' }"
+            :class="{ active: $route.path === '/' }"
             flat
             icon="mdi-home"
             label="Home"

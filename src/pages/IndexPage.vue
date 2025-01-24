@@ -4,10 +4,11 @@ import { useStore } from '../stores/store';
 // import { useRouter } from 'vue-router';
 
 const s = useStore();
-// const $r = useRouter();
+// const router = useRouter();
 
 // onMounted(() => {
 //   s.GetAllDocuments();
+//   router.push('/');
 // });
 </script>
 
