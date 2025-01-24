@@ -175,10 +175,11 @@ export const useStore = defineStore('Store', {
             });
           } else {
             Loading.show();
-            const res: IMany = await api.patch(`/advertisements/${this.many.document.id}`, diff);
-            if (res?.id) {
+            const res = await api.patch(`/advertisements/${this.many.document.id}`, diff);
+            if (res?.data?.id) {
+              const data: IMany = res.data;
               Notify.create({
-                message: `Document with id=${res.id} has been edited successfully!`,
+                message: `Document with id=${data.id} has been edited successfully!`,
                 color: 'positive',
               });
             }
@@ -195,13 +196,15 @@ export const useStore = defineStore('Store', {
       try {
         if (this.many?.document?.id) {
           Loading.show();
-          await api.delete(`/advertisements/${this.many.document.id}`);
-          Notify.create({
-            message: `Document with id=${this.many.document.id} has been deleted successfully!`,
-            color: 'positive',
-          });
-          // After successful delete, navigate to the .... page:
-          // this.router.push('/');
+          const res = await api.delete(`/advertisements/${this.many.document.id}`);
+          if (res.status == 200) {
+            Notify.create({
+              message: `Document with id=${this.many.document.id} has been deleted successfully!`,
+              color: 'positive',
+            });
+            // After successful delete, navigate to the .... page:
+            // this.router.push('/');
+          }
         }
       } catch (error) {
         ShowErrorWithNotify(error);
@@ -213,10 +216,11 @@ export const useStore = defineStore('Store', {
     async ManyCreate(): Promise<void> {
       try {
         Loading.show();
-        const res: IMany = await api.post('/advertisements', this.many.document);
-        if (res?.id) {
+        const res = await api.post('/advertisements', this.many.document);
+        if (res?.data?.id) {
+          const data: IMany = res.data;
           Notify.create({
-            message: `New document with id=${res.id} has been saved successfully!`,
+            message: `New document with id=${data.id} has been saved successfully!`,
             color: 'positive',
           });
         }
