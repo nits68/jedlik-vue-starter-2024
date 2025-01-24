@@ -200,6 +200,8 @@ export const useStore = defineStore('Store', {
             message: `Document with id=${this.many.document.id} has been deleted successfully!`,
             color: 'positive',
           });
+          // After successful delete, navigate to the .... page:
+          // this.router.push('/');
         }
       } catch (error) {
         ShowErrorWithNotify(error);
@@ -218,6 +220,8 @@ export const useStore = defineStore('Store', {
             color: 'positive',
           });
         }
+        // After successful create, navigate to the .... page:
+        // this.router.push('/')
       } catch (error) {
         ShowErrorWithNotify(error);
       } finally {

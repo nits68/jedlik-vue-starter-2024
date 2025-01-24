@@ -5,10 +5,11 @@
 // import { useRouter } from 'vue-router';
 
 // const s = useStore();
-// const $r = useRouter();
+// const router = useRouter();
 
 // onMounted(() => {
 //   s.ManyGetAll();
+//   router.push('/');
 // });
 </script>
 

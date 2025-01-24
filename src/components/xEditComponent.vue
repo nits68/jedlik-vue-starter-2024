@@ -5,7 +5,7 @@ import { Dialog } from 'quasar';
 import { useRouter } from 'vue-router';
 
 const s = useStore();
-const $r = useRouter();
+const router = useRouter();
 
 function ShowDialog() {
   s.OneGetAll(); // for q-selet data
@@ -30,7 +30,7 @@ function Submit() {
     })
     .onCancel(() => {
       s.app.showEditDialog = false;
-      $r.push('/');
+      router.push('/');
     });
 }
 

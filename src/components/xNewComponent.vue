@@ -4,7 +4,7 @@ import { date, Dialog } from 'quasar';
 import { useRouter } from 'vue-router';
 
 const s = useStore();
-const $r = useRouter();
+const router = useRouter();
 
 function ShowDialog() {
   s.OneGetAll();
@@ -29,7 +29,7 @@ function Submit() {
     })
     .onCancel(() => {
       s.app.showNewDialog = false;
-      $r.push('/');
+      router.push('/');
     });
 }
 

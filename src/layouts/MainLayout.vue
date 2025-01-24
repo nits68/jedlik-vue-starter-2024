@@ -4,12 +4,14 @@
 import { ref } from 'vue';
 import { useStore } from '../stores/store';
 import { useRouter, useRoute } from 'vue-router';
+// import { useQuasar } from "quasar";
 
 // import { onMounted } from 'vue';
 
 const s = useStore();
-const r = useRoute();
-const $r = useRouter();
+const $route = useRoute();
+const router = useRouter();
+// const $q = useQuasar();
 
 const showMenuBar = ref(true);
 const showLeftDrawer = ref(true);
@@ -29,14 +31,14 @@ const showStatusBar = ref(true);
         <!-- Menu bar: -->
         <q-toolbar>
           <q-btn dense flat icon="mdi-menu" round @click="showLeftDrawer = !showLeftDrawer" />
-          <q-toolbar-title class="my-title" :shrink="true" style="cursor: pointer" @click="$r.push({ path: '/' })">
+          <q-toolbar-title class="my-title" :shrink="true" style="cursor: pointer" @click="router.push({ path: '/' })">
             <q-avatar>
               <img src="../assets/Jedlik_small.png" />
             </q-avatar>
             Jedlik
           </q-toolbar-title>
           <q-btn
-            :class="{ active: r.path === '/' }"
+            :class="{ active: $route.path === '/' }"
             flat
             icon="mdi-home"
             label="Home"
@@ -44,7 +46,7 @@ const showStatusBar = ref(true);
             to="/"
           />
           <q-btn
-            :class="{ active: r.path === '/xempty' }"
+            :class="{ active: $route.path === '/xempty' }"
             flat
             icon="mdi-application-outline"
             label="xEmpty"
@@ -52,7 +54,7 @@ const showStatusBar = ref(true);
             to="/xempty"
           />
           <q-btn
-            :class="{ active: r.path === '/xhelp' }"
+            :class="{ active: $route.path === '/xhelp' }"
             flat
             icon="mdi-lifebuoy"
             label="xHelp"
@@ -70,7 +72,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/' }"
+            :class="{ active: $route.path === '/' }"
             flat
             icon="mdi-home"
             label="Home"
@@ -80,7 +82,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/xempty' }"
+            :class="{ active: $route.path === '/xempty' }"
             flat
             icon="mdi-application-outline"
             label="xEmpty"
@@ -90,7 +92,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/xhelp' }"
+            :class="{ active: $route.path === '/xhelp' }"
             flat
             icon="mdi-lifebuoy"
             label="xHelp"
@@ -109,7 +111,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/xtable' }"
+            :class="{ active: $route.path === '/xtable' }"
             flat
             icon="mdi-table"
             label="xTable"
@@ -119,7 +121,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/xcard' }"
+            :class="{ active: $route.path === '/xcard' }"
             flat
             icon="mdi-card-account-details"
             label="xCard"
@@ -129,7 +131,7 @@ const showStatusBar = ref(true);
           <q-btn
             align="left"
             class="full-width q-ma-xs"
-            :class="{ active: r.path === '/xcarousel' }"
+            :class="{ active: $route.path === '/xcarousel' }"
             flat
             icon="mdi-view-carousel-outline"
             label="xCarousel"
