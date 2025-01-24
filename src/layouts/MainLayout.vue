@@ -5,7 +5,7 @@
 import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
-const r = useRoute();
+const $route = useRoute();
 
 const showMenuBar = ref(true);
 const showLeftDrawer = ref(true);
@@ -28,7 +28,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width no-margin"
-            :class="{ active: r.path === '/' }"
+            :class="{ active: $route.path === '/' }"
             flat
             icon="mdi-home"
             label="Home"
@@ -38,7 +38,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/interpolation' }"
+            :class="{ active: $route.path === '/interpolation' }"
             flat
             icon="mdi-code-braces-box"
             label="Text interpolation"
@@ -48,7 +48,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/reactive' }"
+            :class="{ active: $route.path === '/reactive' }"
             flat
             icon="mdi-refresh-auto"
             label="Reactive System"
@@ -58,7 +58,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/computed' }"
+            :class="{ active: $route.path === '/computed' }"
             flat
             icon="mdi-calculator"
             label="Computed Properies"
@@ -68,7 +68,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/bindings' }"
+            :class="{ active: $route.path === '/bindings' }"
             flat
             icon="mdi-vuejs"
             label="Bindings (v-bind)"
@@ -78,7 +78,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/conditional' }"
+            :class="{ active: $route.path === '/conditional' }"
             flat
             icon="mdi-arrow-decision-auto-outline"
             label="Conditional rendering (v-if, v-show)"
@@ -88,7 +88,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/list' }"
+            :class="{ active: $route.path === '/list' }"
             flat
             icon="mdi-list-box"
             label="List rendering (v-for)"
@@ -98,7 +98,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/event' }"
+            :class="{ active: $route.path === '/event' }"
             flat
             icon="mdi-cat"
             label="Event handling (v-on)"
@@ -108,7 +108,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/form' }"
+            :class="{ active: $route.path === '/form' }"
             flat
             icon="mdi-form-select"
             label="Form Input Binding (v-model)"
@@ -118,7 +118,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/lifecycle' }"
+            :class="{ active: $route.path === '/lifecycle' }"
             flat
             flexbox
             icon="mdi-recycle"
@@ -129,7 +129,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/watchers' }"
+            :class="{ active: $route.path === '/watchers' }"
             flat
             flexbox
             icon="mdi-binoculars"
@@ -140,7 +140,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/templaterefs' }"
+            :class="{ active: $route.path === '/templaterefs' }"
             flat
             flexbox
             icon="mdi-information"
@@ -151,7 +151,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/componentsbasics' }"
+            :class="{ active: $route.path === '/componentsbasics' }"
             flat
             flexbox
             icon="mdi-view-quilt"
@@ -162,7 +162,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/complex' }"
+            :class="{ active: $route.path === '/complex' }"
             flat
             flexbox
             icon="mdi-widgets"
@@ -173,7 +173,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/flexbox' }"
+            :class="{ active: $route.path === '/flexbox' }"
             flat
             flexbox
             icon="mdi-apps-box"
@@ -184,7 +184,7 @@ const showLeftDrawer = ref(true);
           <q-btn
             align="left"
             class="full-width"
-            :class="{ active: r.path === '/qtable' }"
+            :class="{ active: $route.path === '/qtable' }"
             flat
             flexbox
             icon="mdi-table"
