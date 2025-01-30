@@ -10,7 +10,6 @@ const $q = useQuasar();
 const counter = ref(0);
 const eventCounter = ref(0);
 
-
 // A hook az oldal/komponens betöltésekor (felépítése után) hívódik meg
 onMounted(() => {
   eventCounter.value++;

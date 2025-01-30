@@ -1,9 +1,9 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginVue from "eslint-plugin-vue";
-import pluginQuasar from "@quasar/app-vite/eslint";
-import vueTsEslintConfig from "@vue/eslint-config-typescript";
-import prettierSkipFormatting from "@vue/eslint-config-prettier/skip-formatting";
+import js from '@eslint/js';
+import globals from 'globals';
+import pluginVue from 'eslint-plugin-vue';
+import pluginQuasar from '@quasar/app-vite/eslint';
+import vueTsEslintConfig from '@vue/eslint-config-typescript';
+import prettierSkipFormatting from '@vue/eslint-config-prettier/skip-formatting';
 
 export default [
   {
@@ -33,7 +33,14 @@ export default [
    * pluginVue.configs["flat/recommended"]
    *   -> Above, plus rules to enforce subjective community defaults to ensure consistency.
    */
-  ...pluginVue.configs["flat/essential"],
+  ...pluginVue.configs['flat/essential'],
+
+  {
+    files: ['**/*.ts', '**/*.vue'],
+    rules: {
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    },
+  },
 
   // https://github.com/vuejs/eslint-config-typescript
   ...vueTsEslintConfig({
@@ -42,7 +49,7 @@ export default [
     // https://typescript-eslint.io/users/configs#recommended-configurations
     extends: [
       // By default, only the recommended rules are enabled.
-      "recommended",
+      'recommendedTypeChecked',
       // You can also manually enable the stylistic rules.
       // "stylistic",
 
@@ -53,40 +60,39 @@ export default [
 
   {
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
 
       globals: {
         ...globals.browser,
         ...globals.node, // SSR, Electron, config files
-        process: "readonly", // process.env.*
-        ga: "readonly", // Google Analytics
-        cordova: "readonly",
-        Capacitor: "readonly",
-        chrome: "readonly", // BEX related
-        browser: "readonly", // BEX related
+        process: 'readonly', // process.env.*
+        ga: 'readonly', // Google Analytics
+        cordova: 'readonly',
+        Capacitor: 'readonly',
+        chrome: 'readonly', // BEX related
+        browser: 'readonly', // BEX related
       },
     },
 
     // add your custom rules here
     rules: {
-      "prefer-promise-reject-errors": "off",
-      "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports" }],
+      'prefer-promise-reject-errors': 'off',
 
       // allow debugger during development only
-      "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
       // Add rules by NL:
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/no-namespace": "off",
-      "vue/attributes-order": ["warn", { alphabetical: true }],
-      "eol-last": ["warn", "always"],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-namespace': 'off',
+      'vue/attributes-order': ['warn', { alphabetical: true }],
+      'eol-last': ['warn', 'always'],
     },
   },
 
   {
-    files: ["src-pwa/custom-service-worker.ts"],
+    files: ['src-pwa/custom-service-worker.ts'],
     languageOptions: {
       globals: {
         ...globals.serviceworker,

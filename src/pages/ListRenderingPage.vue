@@ -6,18 +6,18 @@
 <!-- Bemutató tutorial a key-ről: https://codelistic.com/how-and-why-to-use-the-key-attribute-in-vuejs-v-for-loops -->
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, reactive } from 'vue';
 
-const napok = ref(["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat", "Vasárnap"]);
+const napok = ref(['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap']);
 
 function napTörlése(nap: string) {
   napok.value = napok.value.filter((n) => n !== nap);
 }
 
 const myObject = reactive({
-  title: "How to do lists in Vue",
-  author: "Jane Doe",
-  publishedAt: "2016-04-10",
+  title: 'How to do lists in Vue',
+  author: 'Jane Doe',
+  publishedAt: '2016-04-10',
 });
 </script>
 

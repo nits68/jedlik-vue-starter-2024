@@ -31,8 +31,8 @@ watch(question, async (newValue, old) => {
       } else {
         answer.value = 'Error! API returned an unexpected answer.';
       }
-    } catch (error) {
-      answer.value = `Error! Couldn't reach the API. ${error}`;
+    } catch {
+      answer.value = `Error! Couldn't reach the API.`;
     } finally {
       loading.value = false;
     }

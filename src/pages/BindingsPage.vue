@@ -51,7 +51,7 @@ function toggleActive() {
   <!-- Az egyirányú adatkötés Vue.js direktívája a "v-bind:", rövidítése ":" -->
   <q-page>
     <!-- Attribute Bindings -->
-    
+
     <p :id="dynamicId">Bekezdés dinamikus id-val (F12-vel keresd meg az azonosítóját!)</p>
 
     <!-- A v-model Vue.js direktíva a kétirányú adatkötésre szolgál, lsd. később -->
@@ -59,7 +59,7 @@ function toggleActive() {
     <!-- Ha a dynamicId értéke undefined lesz (X-el törlöd a mező végén), akkor az "id" attributum nem kerül rendelerésre-->
     <!-- Induláskor nem lehet a dynamicId alapértelmezett értéke undefined -->
     <q-input v-model="dynamicId" clearable label="Add meg a paragrafus azonosítóját!" outlined />
-    <p>A dynamicId aktuális értéke:  {{ dynamicId == undefined ? 'undefined' :  dynamicId }}</p>
+    <p>A dynamicId aktuális értéke: {{ dynamicId == undefined ? 'undefined' : dynamicId }}</p>
 
     <!-- Same-name Shorthand -->
     <!-- Ha a TS/JS változó azonosítója eggyezik a "kötendő" attribútum azonosítójával, akkor röviden: -->
@@ -69,9 +69,9 @@ function toggleActive() {
     <!-- Egy vagy több dinmikus CSS tulajdonságot (itt color és background-color) objektummal határozzuk meg -->
     <!-- Ha kötőjel van a tulajdonság nevében, akkor camelCase-ben kell megadni a tulajdonságot, -->
     <!-- vagy a tulajdonság azonosítóját (background-color) aposztrófok közé kell tenni. -->
-    <h2 :style="{ color: activeColor, 'background-color': 'yellow' }">Style binding</h2>  
+    <h2 :style="{ color: activeColor, 'background-color': 'yellow' }">Style binding</h2>
     <q-input v-model="activeColor" clearable label="Szín" outlined />
-       
+
     <!-- Több dinamikus CSS tulajdonság megadásakor, célszerű objektumot (styleObject) készíteni a script blokkban: -->
     <h2 :style="styleObject">Style bindings with object</h2>
 

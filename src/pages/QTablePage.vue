@@ -5,7 +5,9 @@ import { onMounted } from 'vue';
 const s = useStore();
 
 onMounted(() => {
-  s.GetAllDocuments();
+  s.GetAllDocuments().catch((e) => {
+    console.log(e);
+  });
 });
 </script>
 

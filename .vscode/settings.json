@@ -9,18 +9,11 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "editor.codeActionsOnSave": [
-    "source.fixAll.eslint"
-  ],
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "editor.mouseWheelZoom": true,
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "vue"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
   "git.enableSmartCommit": true,
