@@ -71,8 +71,8 @@ export default defineConfig((/* ctx */) => {
             vueTsc: true,
             eslint: {
               lintCommand: 'eslint -c ./eslint.config.js "./src*/**/*.{ts,js,mjs,cjs,vue}"',
-              useFlatConfig: true
-            }
+              useFlatConfig: true,
+            },
           },
           { server: false },
         ],
@@ -218,7 +218,7 @@ export default defineConfig((/* ctx */) => {
        *
        * @example [ 'my-script.ts', 'sub-folder/my-other-script.js' ]
        */
-      extraScripts: []
-    }
+      extraScripts: [],
+    },
   };
 });

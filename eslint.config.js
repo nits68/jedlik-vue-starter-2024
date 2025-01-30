@@ -15,7 +15,7 @@ export default [
      *
      * ESLint requires "ignores" key to be the only one in this object
      */
-    ignores: ["node_modules/**/*", "dist/**/*", ".git/**/*", ".quasar/**/*", ".vscode/**/*", "help/**/*"],
+    ignores: ['node_modules/**/*', 'dist/**/*', '.git/**/*', '.quasar/**/*', '.vscode/**/*', 'help/**/*'],
   },
 
   ...pluginQuasar.configs.recommended(),
@@ -38,11 +38,8 @@ export default [
   {
     files: ['**/*.ts', '**/*.vue'],
     rules: {
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' }
-      ],
-    }
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+    },
   },
 
   // https://github.com/vuejs/eslint-config-typescript
