@@ -7,7 +7,7 @@ const s = useStore();
 const router = useRouter();
 
 function ShowDialog() {
-  s.OneGetAll().catch((e) => console.error(e));;
+  s.OneGetAll().catch((e) => console.error(e));
   Reset(); // set default settings
 }
 

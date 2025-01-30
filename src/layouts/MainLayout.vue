@@ -37,14 +37,7 @@ const showStatusBar = ref(true);
             </q-avatar>
             Jedlik
           </q-toolbar-title>
-          <q-btn
-            :class="{ active: $route.path === '/' }"
-            flat
-            icon="mdi-home"
-            label="Home"
-            no-caps
-            to="/"
-          />
+          <q-btn :class="{ active: $route.path === '/' }" flat icon="mdi-home" label="Home" no-caps to="/" />
           <q-btn
             :class="{ active: $route.path === '/xempty' }"
             flat

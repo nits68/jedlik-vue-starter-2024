@@ -24,13 +24,13 @@ function Submit() {
     persistent: true,
   })
     .onOk(() => {
-      s.ManyEditById().catch((e) => console.error(e));;
-      s.ManyGetAll().catch((e) => console.error(e));;
+      s.ManyEditById().catch((e) => console.error(e));
+      s.ManyGetAll().catch((e) => console.error(e));
       s.app.showEditDialog = false;
     })
     .onCancel(() => {
       s.app.showEditDialog = false;
-      router.push('/').catch((e) => console.error(e));;
+      router.push('/').catch((e) => console.error(e));
     });
 }
 
