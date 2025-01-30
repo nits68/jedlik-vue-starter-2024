@@ -8,7 +8,7 @@ const currentSlide = ref(1);
 const autoplay = ref(2000);
 
 onMounted(() => {
-  s.ManyGetAll();
+  s.ManyGetAll().catch((e) => console.error(e));;
 });
 </script>
 

@@ -7,7 +7,7 @@ const s = useStore();
 const router = useRouter();
 
 function ShowDialog() {
-  s.OneGetAll();
+  s.OneGetAll().catch((e) => console.error(e));;
   Reset(); // set default settings
 }
 
@@ -22,14 +22,14 @@ function Submit() {
     cancel: true,
     persistent: true,
   })
-    .onOk(async () => {
-      await s.ManyCreate();
-      await s.ManyGetAll();
-      s.app.showNewDialog = false;
+    .onOk(() => {
+      s.ManyCreate().catch((e) => console.error(e));
+      s.ManyGetAll().catch((e) => console.error(e));
+      // s.app.showNewDialog = false;
     })
     .onCancel(() => {
       s.app.showNewDialog = false;
-      router.push('/');
+      router.push('/').catch((e) => console.error(e));
     });
 }
 

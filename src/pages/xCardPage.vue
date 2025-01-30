@@ -8,7 +8,7 @@ import xNew from '../components/xNewComponent.vue';
 const s = useStore();
 
 onMounted(() => {
-  s.ManyGetAll();
+  s.ManyGetAll().catch((e) => console.error(e));;
 });
 
 function editDocument(id: number) {
@@ -27,10 +27,10 @@ function deleteDocument(id: number) {
     cancel: true,
     persistent: true,
   })
-    .onOk(async () => {
+    .onOk(() => {
       s.many.document = { id: id } as IMany;
-      await s.ManyDeleteById();
-      await s.ManyGetAll();
+      s.ManyDeleteById().catch((e) => console.error(e));;
+      s.ManyGetAll().catch((e) => console.error(e));;
     })
     .onCancel(() => {
       // router.push("/xcard");
@@ -39,9 +39,9 @@ function deleteDocument(id: number) {
 
 function filterUpdate() {
   if (s.app.filter.length > 0) {
-    s.ManyFilter();
+    s.ManyFilter().catch((e) => console.error(e));;
   } else {
-    s.ManyGetAll();
+    s.ManyGetAll().catch((e) => console.error(e));;
   }
 }
 </script>

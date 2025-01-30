@@ -6,7 +6,7 @@ import { type QTableColumn } from 'quasar';
 const s = useStore();
 
 onMounted(() => {
-  s.ManyGetAll();
+  s.ManyGetAll().catch((e) => console.error(e));;
 });
 
 // Selected row(s) -> selection="single" or selection="multiple"

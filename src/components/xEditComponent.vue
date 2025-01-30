@@ -8,8 +8,8 @@ const s = useStore();
 const router = useRouter();
 
 function ShowDialog() {
-  s.OneGetAll(); // for q-selet data
-  s.ManyGetById(); // Before show dialog set "store.many.document.id" field!!!
+  s.OneGetAll().catch((e) => console.error(e)); // for q-selet data
+  s.ManyGetById().catch((e) => console.error(e)); // Before show dialog set "store.many.document.id" field!!!
 }
 
 function HideDialog() {
@@ -23,14 +23,14 @@ function Submit() {
     cancel: true,
     persistent: true,
   })
-    .onOk(async () => {
-      await s.ManyEditById();
-      await s.ManyGetAll();
+    .onOk(() => {
+      s.ManyEditById().catch((e) => console.error(e));;
+      s.ManyGetAll().catch((e) => console.error(e));;
       s.app.showEditDialog = false;
     })
     .onCancel(() => {
       s.app.showEditDialog = false;
-      router.push('/');
+      router.push('/').catch((e) => console.error(e));;
     });
 }
 
